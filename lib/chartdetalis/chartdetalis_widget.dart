@@ -46,7 +46,7 @@ class _ChartdetalisWidgetState extends State<ChartdetalisWidget> {
         final chartdetalisBudgetsRecord = snapshot.data!;
         return Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).errorRed,
+          backgroundColor: Color(0xFFAF111B),
           body: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -118,7 +118,14 @@ class _ChartdetalisWidgetState extends State<ChartdetalisWidget> {
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [],
+                          children: [
+                            Image.asset(
+                              'assets/images/Pngtreeppt_data_line_chart_illustration_4661951.png',
+                              width: 300,
+                              height: 400,
+                              fit: BoxFit.cover,
+                            ),
+                          ],
                         ),
                       ),
                     ],
@@ -190,12 +197,12 @@ class _ChartdetalisWidgetState extends State<ChartdetalisWidget> {
                                 );
                               },
                               text: FFLocalizations.of(context).getText(
-                                '8uyn171r' /* Delete Budget */,
+                                '8uyn171r' /*   INVESTMENT */,
                               ),
                               options: FFButtonOptions(
                                 width: 300,
-                                height: 70,
-                                color: FlutterFlowTheme.of(context).errorRed,
+                                height: 50,
+                                color: Color(0x00F06A6A),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .title1
                                     .override(
@@ -220,7 +227,7 @@ class _ChartdetalisWidgetState extends State<ChartdetalisWidget> {
               ),
               Text(
                 FFLocalizations.of(context).getText(
-                  'xp74q6wm' /* Tap above to remove this bude */,
+                  'xp74q6wm' /* monthly evolution */,
                 ),
                 style: FlutterFlowTheme.of(context).bodyText1.override(
                       fontFamily: 'Lexend',

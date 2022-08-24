@@ -2381,13 +2381,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // chartdetalis
   {
     '8uyn171r': {
-      'en': 'Delete Budget',
+      'en': '  INVESTMENT',
       'ar': 'حذف الميزانية',
       'de': 'Budget löschen',
       'es': 'Eliminar presupuesto',
     },
     'xp74q6wm': {
-      'en': 'Tap above to remove this bude',
+      'en': 'monthly evolution',
       'ar': 'انقر فوق لإزالة هذا bude',
       'de': 'Tippen Sie oben, um diese Bude zu entfernen',
       'es': 'Toque arriba para eliminar este bude',

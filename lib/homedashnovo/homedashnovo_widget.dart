@@ -1,4 +1,4 @@
-import '../detalhegraficos/detalhegraficos_widget.dart';
+import '../chartdetalis/chartdetalis_widget.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_calendar.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
@@ -804,7 +804,7 @@ class _HomedashnovoWidgetState extends State<HomedashnovoWidget>
                                                           context,
                                                           MaterialPageRoute(
                                                             builder: (context) =>
-                                                                DetalhegraficosWidget(),
+                                                                ChartdetalisWidget(),
                                                           ),
                                                         );
                                                       },
