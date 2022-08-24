@@ -215,38 +215,6 @@ class _HomedashnovoWidgetState extends State<HomedashnovoWidget>
         opacity: 1,
       ),
     ),
-    'containerOnPageLoadAnimation7': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      hideBeforeAnimating: false,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 90),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
-    ),
-    'containerOnPageLoadAnimation8': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      hideBeforeAnimating: false,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 60),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
-    ),
   };
 
   @override
@@ -352,7 +320,7 @@ class _HomedashnovoWidgetState extends State<HomedashnovoWidget>
                             children: [
                               Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                                    EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
                                 child: FlutterFlowDropDown(
                                   options: [
                                     FFLocalizations.of(context).getText(
@@ -385,7 +353,7 @@ class _HomedashnovoWidgetState extends State<HomedashnovoWidget>
                               ),
                               Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 6, 0, 0),
+                                    EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                                 child: FlutterFlowCalendar(
                                   color: Color(0xFFAF111B),
                                   iconColor: Colors.white,
@@ -447,10 +415,10 @@ class _HomedashnovoWidgetState extends State<HomedashnovoWidget>
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 15, 16, 12),
+                                        16, 20, 16, 12),
                                     child: Container(
                                       width: double.infinity,
-                                      height: 105,
+                                      height: 90,
                                       decoration: BoxDecoration(
                                         color: Colors.black,
                                         image: DecorationImage(
@@ -511,7 +479,7 @@ class _HomedashnovoWidgetState extends State<HomedashnovoWidget>
                                             ),
                                             CircularPercentIndicator(
                                               percent: 0.034,
-                                              radius: 40,
+                                              radius: 35,
                                               lineWidth: 4,
                                               animation: true,
                                               progressColor: Colors.white,
@@ -598,7 +566,7 @@ class _HomedashnovoWidgetState extends State<HomedashnovoWidget>
                                                             .fromSTEB(
                                                                 0, 12, 0, 0),
                                                     child: Container(
-                                                      width: 70,
+                                                      width: 80,
                                                       height: 65,
                                                       decoration: BoxDecoration(
                                                         color:
@@ -670,7 +638,7 @@ class _HomedashnovoWidgetState extends State<HomedashnovoWidget>
                                                               .fromSTEB(
                                                                   0, 12, 0, 0),
                                                       child: Container(
-                                                        width: 70,
+                                                        width: 80,
                                                         height: 156,
                                                         decoration:
                                                             BoxDecoration(
@@ -736,7 +704,7 @@ class _HomedashnovoWidgetState extends State<HomedashnovoWidget>
                                                             .fromSTEB(
                                                                 0, 12, 0, 0),
                                                     child: Container(
-                                                      width: 70,
+                                                      width: 80,
                                                       height: 25,
                                                       decoration: BoxDecoration(
                                                         color:
@@ -777,9 +745,11 @@ class _HomedashnovoWidgetState extends State<HomedashnovoWidget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  5, 12, 20, 12),
+                                                  5, 12, 20, 20),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -1005,199 +975,6 @@ class _HomedashnovoWidgetState extends State<HomedashnovoWidget>
                                                     ).animated([
                                                       animationsMap[
                                                           'containerOnPageLoadAnimation6']!
-                                                    ]),
-                                                    Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width *
-                                                              0.4,
-                                                      height: 160,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFFF1F4F8),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(24),
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(12,
-                                                                    12, 12, 12),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Icon(
-                                                              Icons
-                                                                  .insert_chart,
-                                                              color: Color(
-                                                                  0xFF0F1113),
-                                                              size: 32,
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0,
-                                                                          12,
-                                                                          0,
-                                                                          12),
-                                                              child: Text(
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                                  '8qwro5oc' /* R$4.2k */,
-                                                                ),
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .title1
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Outfit',
-                                                                      color: Color(
-                                                                          0xFF0F1113),
-                                                                      fontSize:
-                                                                          32,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                            Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'djfupxqy' /*  PROFIT */,
-                                                              ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyText2
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Outfit',
-                                                                    color: Color(
-                                                                        0xFF57636C),
-                                                                    fontSize:
-                                                                        14,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                  ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ).animated([
-                                                      animationsMap[
-                                                          'containerOnPageLoadAnimation7']!
-                                                    ]),
-                                                    Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width *
-                                                              0.4,
-                                                      height: 160,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFF39D2C0),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(24),
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(12,
-                                                                    12, 12, 12),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Icon(
-                                                              Icons.payments,
-                                                              color: Color(
-                                                                  0xFF0F1113),
-                                                              size: 44,
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0,
-                                                                          12,
-                                                                          0,
-                                                                          12),
-                                                              child: Text(
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                                  'b0qwzriq' /* $320k */,
-                                                                ),
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .title1
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Outfit',
-                                                                      color: Color(
-                                                                          0xFF0F1113),
-                                                                      fontSize:
-                                                                          32,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                            Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'qna6tz9w' /* Total Sales */,
-                                                              ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyText2
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Outfit',
-                                                                    color: Color(
-                                                                        0xFF57636C),
-                                                                    fontSize:
-                                                                        14,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                  ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ).animated([
-                                                      animationsMap[
-                                                          'containerOnPageLoadAnimation8']!
                                                     ]),
                                                   ],
                                                 ),
