@@ -6,7 +6,6 @@ import '../homedashnovo/homedashnovo_widget.dart';
 import '../register_account/register_account_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPageWidget extends StatefulWidget {
@@ -62,7 +61,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 120, 0, 60),
@@ -70,11 +69,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SvgPicture.asset(
-                              'assets/images/logojbf_2.svg',
+                            Image.asset(
+                              'assets/images/download.png',
                               width: 170,
                               height: 170,
-                              fit: BoxFit.fill,
+                              fit: BoxFit.contain,
                             ),
                           ],
                         ),
@@ -114,8 +113,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   controller: emailAddressLoginController,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    labelStyle:
-                                        FlutterFlowTheme.of(context).bodyText2,
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .bodyText2
+                                        .override(
+                                          fontFamily: 'Lexend',
+                                          color: Colors.white,
+                                        ),
                                     hintText:
                                         FFLocalizations.of(context).getText(
                                       'i7f18cve' /* Enter your email... */,
@@ -146,6 +149,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Lexend',
+                                        color: Colors.white,
                                         fontSize: 10,
                                         fontWeight: FontWeight.w300,
                                       ),
@@ -158,8 +162,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   controller: passwordLoginController,
                                   obscureText: !passwordLoginVisibility,
                                   decoration: InputDecoration(
-                                    labelStyle:
-                                        FlutterFlowTheme.of(context).bodyText2,
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .bodyText2
+                                        .override(
+                                          fontFamily: 'Lexend',
+                                          color: Colors.white,
+                                        ),
                                     hintText:
                                         FFLocalizations.of(context).getText(
                                       'lw1jpm1f' /* Enter your password... */,
@@ -204,6 +212,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Lexend',
+                                        color: Colors.white,
                                         fontSize: 10,
                                         fontWeight: FontWeight.w300,
                                       ),

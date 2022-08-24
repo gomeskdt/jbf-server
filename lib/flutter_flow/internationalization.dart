@@ -2341,30 +2341,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    '8qwro5oc': {
-      'en': 'R\$4.2k',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'djfupxqy': {
-      'en': ' PROFIT',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'b0qwzriq': {
-      'en': '\$320k',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'qna6tz9w': {
-      'en': 'Total Sales',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     'atyre4oa': {
       'en': 'Daily',
       'ar': '',
