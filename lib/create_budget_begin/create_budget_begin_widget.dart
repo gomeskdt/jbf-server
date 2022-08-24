@@ -5,7 +5,7 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../m_y_card/m_y_card_widget.dart';
+import '../main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -341,7 +341,8 @@ class _CreateBudgetBeginWidgetState extends State<CreateBudgetBeginWidget>
                               await Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => MYCardWidget(),
+                                  builder: (context) =>
+                                      NavBarPage(initialPage: 'MY_Card'),
                                 ),
                               );
                             },

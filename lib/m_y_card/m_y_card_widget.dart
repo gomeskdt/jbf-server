@@ -9,7 +9,6 @@ import '../transaction_a_d_d/transaction_a_d_d_widget.dart';
 import '../transfer_funds/transfer_funds_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MYCardWidget extends StatefulWidget {

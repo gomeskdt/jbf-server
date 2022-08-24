@@ -4,8 +4,8 @@ import '../complete_profile/complete_profile_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../homedashnovo/homedashnovo_widget.dart';
 import '../login_page/login_page_widget.dart';
+import '../main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -438,7 +438,8 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                             await Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => HomedashnovoWidget(),
+                                builder: (context) =>
+                                    NavBarPage(initialPage: 'homedashnovo'),
                               ),
                               (r) => false,
                             );

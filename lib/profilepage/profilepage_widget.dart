@@ -1,7 +1,7 @@
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../m_y_card/m_y_card_widget.dart';
+import '../main.dart';
 import '../transfer_funds/transfer_funds_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -289,7 +289,8 @@ class _ProfilepageWidgetState extends State<ProfilepageWidget>
                             await Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => MYCardWidget(),
+                                builder: (context) =>
+                                    NavBarPage(initialPage: 'MY_Card'),
                               ),
                               (r) => false,
                             );

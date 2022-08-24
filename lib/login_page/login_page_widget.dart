@@ -2,7 +2,7 @@ import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../homedashnovo/homedashnovo_widget.dart';
+import '../main.dart';
 import '../register_account/register_account_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -268,8 +268,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       await Navigator.pushAndRemoveUntil(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) =>
-                                              HomedashnovoWidget(),
+                                          builder: (context) => NavBarPage(
+                                              initialPage: 'homedashnovo'),
                                         ),
                                         (r) => false,
                                       );

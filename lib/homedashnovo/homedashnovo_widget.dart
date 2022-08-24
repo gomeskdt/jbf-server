@@ -1,3 +1,4 @@
+import '../auth/auth_util.dart';
 import '../chartdetalis/chartdetalis_widget.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_calendar.dart';
@@ -5,6 +6,7 @@ import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../login_page/login_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -261,8 +263,15 @@ class _HomedashnovoWidgetState extends State<HomedashnovoWidget>
               color: Color(0xFF57636C),
               size: 30,
             ),
-            onPressed: () {
-              print('IconButton pressed ...');
+            onPressed: () async {
+              await signOut();
+              await Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoginPageWidget(),
+                ),
+                (r) => false,
+              );
             },
           ),
         ],
@@ -304,8 +313,7 @@ class _HomedashnovoWidgetState extends State<HomedashnovoWidget>
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height * 1,
                         decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
+                          color: Colors.black,
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: Image.asset(
@@ -314,681 +322,721 @@ class _HomedashnovoWidgetState extends State<HomedashnovoWidget>
                           ),
                           shape: BoxShape.rectangle,
                         ),
-                        child: SingleChildScrollView(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-                                child: FlutterFlowDropDown(
-                                  options: [
-                                    FFLocalizations.of(context).getText(
-                                      '2n6a33l2' /* FINC4YOU */,
-                                    )
-                                  ],
-                                  onChanged: (val) =>
-                                      setState(() => dropDownValue = val),
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.95,
-                                  height: 40,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Lexend',
-                                        color: Colors.black,
-                                      ),
-                                  hintText: FFLocalizations.of(context).getText(
-                                    'xfykr2fr' /* FINC4YOU  */,
-                                  ),
-                                  fillColor: Colors.white,
-                                  elevation: 2,
-                                  borderColor: Colors.transparent,
-                                  borderWidth: 0,
-                                  borderRadius: 10,
-                                  margin: EdgeInsetsDirectional.fromSTEB(
-                                      12, 4, 12, 4),
-                                  hidesUnderline: true,
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                                child: FlutterFlowCalendar(
-                                  color: Color(0xFFAF111B),
-                                  iconColor: Colors.white,
-                                  weekFormat: true,
-                                  weekStartsMonday: true,
-                                  initialDate: getCurrentTimestamp,
-                                  onChange: (DateTimeRange? newSelectedDate) {
-                                    setState(() =>
-                                        calendarSelectedDay = newSelectedDate);
-                                  },
-                                  titleStyle: FlutterFlowTheme.of(context)
-                                      .subtitle1
-                                      .override(
-                                        fontFamily: 'Outfit',
-                                        color: Colors.white,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                  dayOfWeekStyle: FlutterFlowTheme.of(context)
-                                      .bodyText2
-                                      .override(
-                                        fontFamily: 'Outfit',
-                                        color: Colors.white,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                  dateStyle: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Outfit',
-                                        color: Colors.white,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                  selectedDateStyle:
-                                      FlutterFlowTheme.of(context)
-                                          .subtitle2
-                                          .override(
-                                            fontFamily: 'Outfit',
-                                            color: Color(0xFF110606),
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                  inactiveDateStyle:
-                                      FlutterFlowTheme.of(context)
-                                          .bodyText2
-                                          .override(
-                                            fontFamily: 'Outfit',
-                                            color: Color(0x6B57636C),
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                  locale:
-                                      FFLocalizations.of(context).languageCode,
-                                ),
-                              ),
-                              Column(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            SingleChildScrollView(
+                              child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 20, 16, 12),
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        color: Colors.black,
-                                        image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: Image.asset(
-                                            'assets/images/46.jpg',
-                                          ).image,
-                                        ),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 5,
-                                            color: Color(0x23000000),
-                                            offset: Offset(0, 2),
-                                          )
-                                        ],
-                                        borderRadius: BorderRadius.circular(12),
+                                        0, 30, 0, 0),
+                                    child: FlutterFlowDropDown(
+                                      options: [
+                                        FFLocalizations.of(context).getText(
+                                          '2n6a33l2' /* FINC4YOU */,
+                                        )
+                                      ],
+                                      onChanged: (val) =>
+                                          setState(() => dropDownValue = val),
+                                      width: MediaQuery.of(context).size.width *
+                                          0.95,
+                                      height: 40,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Lexend',
+                                            color: Colors.black,
+                                          ),
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        'xfykr2fr' /* FINC4YOU  */,
                                       ),
-                                      child: Padding(
+                                      fillColor: Colors.white,
+                                      elevation: 2,
+                                      borderColor: Colors.transparent,
+                                      borderWidth: 0,
+                                      borderRadius: 10,
+                                      margin: EdgeInsetsDirectional.fromSTEB(
+                                          12, 4, 12, 4),
+                                      hidesUnderline: true,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 20, 0, 0),
+                                    child: FlutterFlowCalendar(
+                                      color: Color(0xFFAF111B),
+                                      iconColor: Colors.white,
+                                      weekFormat: true,
+                                      weekStartsMonday: true,
+                                      initialDate: getCurrentTimestamp,
+                                      onChange:
+                                          (DateTimeRange? newSelectedDate) {
+                                        setState(() => calendarSelectedDay =
+                                            newSelectedDate);
+                                      },
+                                      titleStyle: FlutterFlowTheme.of(context)
+                                          .subtitle1
+                                          .override(
+                                            fontFamily: 'Outfit',
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                      dayOfWeekStyle:
+                                          FlutterFlowTheme.of(context)
+                                              .bodyText2
+                                              .override(
+                                                fontFamily: 'Outfit',
+                                                color: Colors.white,
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                      dateStyle: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Outfit',
+                                            color: Colors.white,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                      selectedDateStyle:
+                                          FlutterFlowTheme.of(context)
+                                              .subtitle2
+                                              .override(
+                                                fontFamily: 'Outfit',
+                                                color: Color(0xFF110606),
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                      inactiveDateStyle:
+                                          FlutterFlowTheme.of(context)
+                                              .bodyText2
+                                              .override(
+                                                fontFamily: 'Outfit',
+                                                color: Color(0x6B57636C),
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                      locale: FFLocalizations.of(context)
+                                          .languageCode,
+                                    ),
+                                  ),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16, 16, 16, 16),
-                                        child: Row(
+                                            16, 20, 16, 12),
+                                        child: Container(
+                                          width: double.infinity,
+                                          height: 90,
+                                          decoration: BoxDecoration(
+                                            color: Colors.black,
+                                            image: DecorationImage(
+                                              fit: BoxFit.cover,
+                                              image: Image.asset(
+                                                'assets/images/46.jpg',
+                                              ).image,
+                                            ),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                blurRadius: 5,
+                                                color: Color(0x23000000),
+                                                offset: Offset(0, 2),
+                                              )
+                                            ],
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16, 16, 16, 16),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Expanded(
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(20, 0,
+                                                                    0, 0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'rp3j65x4' /* ROI */,
+                                                          ),
+                                                          style: GoogleFonts
+                                                              .getFont(
+                                                            'Montserrat',
+                                                            color: Colors.white,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            fontSize: 30,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ).animated([
+                                                    animationsMap[
+                                                        'columnOnPageLoadAnimation']!
+                                                  ]),
+                                                ),
+                                                CircularPercentIndicator(
+                                                  percent: 0.034,
+                                                  radius: 35,
+                                                  lineWidth: 4,
+                                                  animation: true,
+                                                  progressColor: Colors.white,
+                                                  backgroundColor:
+                                                      Color(0x2B202529),
+                                                  center: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      '4mnl8y28' /* 0,34% */,
+                                                    ),
+                                                    style: GoogleFonts.getFont(
+                                                      'Montserrat',
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      fontSize: 14,
+                                                    ),
+                                                  ),
+                                                ).animated([
+                                                  animationsMap[
+                                                      'progressBarOnPageLoadAnimation']!
+                                                ]),
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Icon(
+                                                      Icons.trending_up_sharp,
+                                                      color: Colors.white,
+                                                      size: 24,
+                                                    ).animated([
+                                                      animationsMap[
+                                                          'iconOnPageLoadAnimation']!
+                                                    ]),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ).animated([
+                                          animationsMap[
+                                              'containerOnPageLoadAnimation1']!
+                                        ]),
+                                      ),
+                                      SingleChildScrollView(
+                                        child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            Expanded(
-                                              child: Column(
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(20, 20, 20, 20),
+                                              child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
                                                 crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
+                                                    CrossAxisAlignment.end,
                                                 children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                20, 0, 0, 0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'rp3j65x4' /* ROI */,
-                                                      ),
-                                                      style:
-                                                          GoogleFonts.getFont(
-                                                        'Montserrat',
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        fontSize: 30,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ).animated([
-                                                animationsMap[
-                                                    'columnOnPageLoadAnimation']!
-                                              ]),
-                                            ),
-                                            CircularPercentIndicator(
-                                              percent: 0.034,
-                                              radius: 35,
-                                              lineWidth: 4,
-                                              animation: true,
-                                              progressColor: Colors.white,
-                                              backgroundColor:
-                                                  Color(0x2B202529),
-                                              center: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '4mnl8y28' /* 0,34% */,
-                                                ),
-                                                style: GoogleFonts.getFont(
-                                                  'Montserrat',
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontSize: 14,
-                                                ),
-                                              ),
-                                            ).animated([
-                                              animationsMap[
-                                                  'progressBarOnPageLoadAnimation']!
-                                            ]),
-                                            Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Icon(
-                                                  Icons.trending_up_sharp,
-                                                  color: Colors.white,
-                                                  size: 24,
-                                                ).animated([
-                                                  animationsMap[
-                                                      'iconOnPageLoadAnimation']!
-                                                ]),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ).animated([
-                                      animationsMap[
-                                          'containerOnPageLoadAnimation1']!
-                                    ]),
-                                  ),
-                                  SingleChildScrollView(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20, 20, 20, 0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'son8wb8x' /* R$1.6k */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          color: Colors.white,
-                                                          fontSize: 14,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
-                                                  ).animated([
-                                                    animationsMap[
-                                                        'textOnPageLoadAnimation1']!
-                                                  ]),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 12, 0, 0),
-                                                    child: Container(
-                                                      width: 80,
-                                                      height: 65,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFFAF111B),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(12),
-                                                      ),
-                                                    ).animated([
-                                                      animationsMap[
-                                                          'containerOnPageLoadAnimation2']!
-                                                    ]),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 2, 0, 0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '39hkpc3a' /*  REVENUE */,
-                                                      ),
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style:
-                                                          GoogleFonts.getFont(
-                                                        'Montserrat',
-                                                        color: Colors.white,
-                                                        fontSize: 10,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(10, 0, 10, 0),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'shzo55ft' /* R$24.7k */,
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyText1
-                                                          .override(
-                                                            fontFamily:
-                                                                'Montserrat',
-                                                            color: Colors.white,
-                                                            fontSize: 14,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                          ),
-                                                    ).animated([
-                                                      animationsMap[
-                                                          'textOnPageLoadAnimation2']!
-                                                    ]),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 12, 0, 0),
-                                                      child: Container(
-                                                        width: 80,
-                                                        height: 156,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color:
-                                                              Color(0xFF06AA47),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(12),
-                                                        ),
-                                                      ).animated([
-                                                        animationsMap[
-                                                            'containerOnPageLoadAnimation3']!
-                                                      ]),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 2, 0, 0),
-                                                      child: Text(
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'gzy6e8g5' /* INVESTMENT */,
+                                                          'son8wb8x' /* R$1.6k */,
                                                         ),
-                                                        style:
-                                                            GoogleFonts.getFont(
-                                                          'Montserrat',
-                                                          color: Colors.white,
-                                                          fontSize: 10,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyText1
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Montserrat',
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 14,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .normal,
+                                                            ),
+                                                      ).animated([
+                                                        animationsMap[
+                                                            'textOnPageLoadAnimation1']!
+                                                      ]),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(0, 12,
+                                                                    0, 0),
+                                                        child: Container(
+                                                          width: 80,
+                                                          height: 65,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0xFFAF111B),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        12),
+                                                          ),
+                                                        ).animated([
+                                                          animationsMap[
+                                                              'containerOnPageLoadAnimation2']!
+                                                        ]),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 2, 0, 0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            '39hkpc3a' /*  REVENUE */,
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: GoogleFonts
+                                                              .getFont(
+                                                            'Montserrat',
+                                                            color: Colors.white,
+                                                            fontSize: 10,
+                                                          ),
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'qahbmdr0' /* -R$23.7k */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          color: Colors.white,
-                                                          fontSize: 14,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
-                                                  ).animated([
-                                                    animationsMap[
-                                                        'textOnPageLoadAnimation3']!
-                                                  ]),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 12, 0, 0),
-                                                    child: Container(
-                                                      width: 80,
-                                                      height: 25,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFF092BB0),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(12),
-                                                      ),
-                                                    ).animated([
-                                                      animationsMap[
-                                                          'containerOnPageLoadAnimation4']!
-                                                    ]),
+                                                    ],
                                                   ),
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(
-                                                                0, 2, 0, 0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'run76xe0' /* PROFIT  */,
-                                                      ),
-                                                      style:
-                                                          GoogleFonts.getFont(
-                                                        'Montserrat',
-                                                        color: Colors.white,
-                                                        fontSize: 10,
-                                                      ),
+                                                                10, 0, 10, 0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'shzo55ft' /* R$24.7k */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Montserrat',
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 14,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                        ).animated([
+                                                          animationsMap[
+                                                              'textOnPageLoadAnimation2']!
+                                                        ]),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(0,
+                                                                      12, 0, 0),
+                                                          child: Container(
+                                                            width: 80,
+                                                            height: 156,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Color(
+                                                                  0xFF06AA47),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          12),
+                                                            ),
+                                                          ).animated([
+                                                            animationsMap[
+                                                                'containerOnPageLoadAnimation3']!
+                                                          ]),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(0,
+                                                                      2, 0, 0),
+                                                          child: Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'gzy6e8g5' /* INVESTMENT */,
+                                                            ),
+                                                            style: GoogleFonts
+                                                                .getFont(
+                                                              'Montserrat',
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 10,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
+                                                  ),
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'qahbmdr0' /* -R$23.7k */,
+                                                        ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyText1
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Montserrat',
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 14,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .normal,
+                                                            ),
+                                                      ).animated([
+                                                        animationsMap[
+                                                            'textOnPageLoadAnimation3']!
+                                                      ]),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(0, 12,
+                                                                    0, 0),
+                                                        child: Container(
+                                                          width: 80,
+                                                          height: 25,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0xFF092BB0),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        12),
+                                                          ),
+                                                        ).animated([
+                                                          animationsMap[
+                                                              'containerOnPageLoadAnimation4']!
+                                                        ]),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 2, 0, 0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'run76xe0' /* PROFIT  */,
+                                                          ),
+                                                          style: GoogleFonts
+                                                              .getFont(
+                                                            'Montserrat',
+                                                            color: Colors.white,
+                                                            fontSize: 10,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ],
                                               ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  5, 12, 20, 20),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 15, 0, 20),
-                                                child: Wrap(
-                                                  spacing: 8,
-                                                  runSpacing: 4,
-                                                  alignment:
-                                                      WrapAlignment.start,
-                                                  crossAxisAlignment:
-                                                      WrapCrossAlignment.start,
-                                                  direction: Axis.horizontal,
-                                                  runAlignment:
-                                                      WrapAlignment.start,
-                                                  verticalDirection:
-                                                      VerticalDirection.down,
-                                                  clipBehavior: Clip.none,
-                                                  children: [
-                                                    InkWell(
-                                                      onTap: () async {
-                                                        await Navigator.push(
-                                                          context,
-                                                          MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                ChartdetalisWidget(),
-                                                          ),
-                                                        );
-                                                      },
-                                                      child: Container(
-                                                        width: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .width *
-                                                            0.4,
-                                                        height: 160,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color:
-                                                              Color(0xFFF1F4F8),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(24),
-                                                        ),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12,
-                                                                      12,
-                                                                      12,
-                                                                      12),
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Icon(
-                                                                Icons
-                                                                    .bar_chart_rounded,
-                                                                color: Color(
-                                                                    0xFF0F1113),
-                                                                size: 32,
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5, 12, 20, 500),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                0, 15, 0, 20),
+                                                    child: Wrap(
+                                                      spacing: 8,
+                                                      runSpacing: 4,
+                                                      alignment:
+                                                          WrapAlignment.start,
+                                                      crossAxisAlignment:
+                                                          WrapCrossAlignment
+                                                              .start,
+                                                      direction:
+                                                          Axis.horizontal,
+                                                      runAlignment:
+                                                          WrapAlignment.start,
+                                                      verticalDirection:
+                                                          VerticalDirection
+                                                              .down,
+                                                      clipBehavior: Clip.none,
+                                                      children: [
+                                                        InkWell(
+                                                          onTap: () async {
+                                                            await Navigator
+                                                                .push(
+                                                              context,
+                                                              MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        ChartdetalisWidget(),
                                                               ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
+                                                            );
+                                                          },
+                                                          child: Container(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width *
+                                                                0.4,
+                                                            height: 160,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Color(
+                                                                  0xFFF1F4F8),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          24),
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          12,
+                                                                          12,
+                                                                          12,
+                                                                          12),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  Icon(
+                                                                    Icons
+                                                                        .bar_chart_rounded,
+                                                                    color: Color(
+                                                                        0xFF0F1113),
+                                                                    size: 32,
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0,
                                                                             12,
                                                                             0,
                                                                             12),
-                                                                child: Text(
+                                                                    child: Text(
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'utm77887' /* R$9.3k */,
+                                                                      ),
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .center,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .title1
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Outfit',
+                                                                            color:
+                                                                                Color(0xFF0F1113),
+                                                                            fontSize:
+                                                                                32,
+                                                                            fontWeight:
+                                                                                FontWeight.w500,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                  Text(
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'iqdc10j4' /*  INVESTMENT */,
+                                                                    ),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText2
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Outfit',
+                                                                          color:
+                                                                              Color(0xFF57636C),
+                                                                          fontSize:
+                                                                              14,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ).animated([
+                                                          animationsMap[
+                                                              'containerOnPageLoadAnimation5']!
+                                                        ]),
+                                                        Container(
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.4,
+                                                          height: 160,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0xFFF1F4F8),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        24),
+                                                          ),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        12,
+                                                                        12,
+                                                                        12,
+                                                                        12),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Icon(
+                                                                  Icons
+                                                                      .show_chart,
+                                                                  color: Color(
+                                                                      0xFF0F1113),
+                                                                  size: 32,
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          12,
+                                                                          0,
+                                                                          12),
+                                                                  child: Text(
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'vew4xloi' /* R$468 */,
+                                                                    ),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .title1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Outfit',
+                                                                          color:
+                                                                              Color(0xFF0F1113),
+                                                                          fontSize:
+                                                                              32,
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                                Text(
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'utm77887' /* R$9.3k */,
+                                                                    'xm3y2rx2' /* REVENUE */,
                                                                   ),
                                                                   textAlign:
                                                                       TextAlign
                                                                           .center,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .title1
+                                                                      .bodyText2
                                                                       .override(
                                                                         fontFamily:
                                                                             'Outfit',
                                                                         color: Color(
-                                                                            0xFF0F1113),
+                                                                            0xFF57636C),
                                                                         fontSize:
-                                                                            32,
+                                                                            14,
                                                                         fontWeight:
-                                                                            FontWeight.w500,
+                                                                            FontWeight.normal,
                                                                       ),
                                                                 ),
-                                                              ),
-                                                              Text(
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                                  'iqdc10j4' /*  INVESTMENT */,
-                                                                ),
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText2
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Outfit',
-                                                                      color: Color(
-                                                                          0xFF57636C),
-                                                                      fontSize:
-                                                                          14,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                    ),
-                                                              ),
-                                                            ],
+                                                              ],
+                                                            ),
                                                           ),
-                                                        ),
-                                                      ),
-                                                    ).animated([
-                                                      animationsMap[
-                                                          'containerOnPageLoadAnimation5']!
-                                                    ]),
-                                                    Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width *
-                                                              0.4,
-                                                      height: 160,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFFF1F4F8),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(24),
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(12,
-                                                                    12, 12, 12),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Icon(
-                                                              Icons.show_chart,
-                                                              color: Color(
-                                                                  0xFF0F1113),
-                                                              size: 32,
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0,
-                                                                          12,
-                                                                          0,
-                                                                          12),
-                                                              child: Text(
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                                  'vew4xloi' /* R$468 */,
-                                                                ),
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .title1
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Outfit',
-                                                                      color: Color(
-                                                                          0xFF0F1113),
-                                                                      fontSize:
-                                                                          32,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                            Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'xm3y2rx2' /* REVENUE */,
-                                                              ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyText2
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Outfit',
-                                                                    color: Color(
-                                                                        0xFF57636C),
-                                                                    fontSize:
-                                                                        14,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                  ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ).animated([
-                                                      animationsMap[
-                                                          'containerOnPageLoadAnimation6']!
-                                                    ]),
-                                                  ],
-                                                ),
+                                                        ).animated([
+                                                          animationsMap[
+                                                              'containerOnPageLoadAnimation6']!
+                                                        ]),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
