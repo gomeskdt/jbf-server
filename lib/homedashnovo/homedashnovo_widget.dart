@@ -605,7 +605,7 @@ class _HomedashnovoWidgetState extends State<HomedashnovoWidget>
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(15, 0, 15, 0),
+                                                    .fromSTEB(10, 0, 10, 0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
